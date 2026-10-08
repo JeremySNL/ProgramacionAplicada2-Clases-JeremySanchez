@@ -2,15 +2,18 @@ import { View, Text, Button, TextInput, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-
 export default function loginScreen() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const router = useRouter();
   const handleLogin = () => {
-    router.replace("/home");
+    if (!email.trim() || !password.trim()) {
+    } else {
+      router.replace("/home");
+    }
   };
-  
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Iniciar sesion</Text>
